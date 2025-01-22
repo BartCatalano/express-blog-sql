@@ -1,23 +1,23 @@
 // importo la lista dati
 
-const connection = require ("../data/db.js");
+const connection = require("../data/data");
 
 
 // index
 const index = (req, res) => {
- const sql = "SELECT * FROM `posts`";
+    const sql = "SELECT * FROM `posts`";
 
- connection.query(sql, (err)=> {
-   if(err) { return res.status(500).json({
-    massage: "Errore Interno Del Server"
-   })} else {
-    return req.status(200).json({
-        status:"success",
-        data: post,
-    })
-   }
- })
-};
+    connection.query(sql, (err, res) => {
+        if (err) return res.status(500).json({
+            massage: "Errore Interno Del Server"
+        })
+        return req.status(200).json({
+            status: "success",
+            data: post,
+        })
+    });
+}
+
 
 // show
 const show = (req, res) => {
@@ -32,7 +32,7 @@ const show = (req, res) => {
 
 // // update
 // const update = (req, res) => {
-   
+
 // };
 
 // // modify
@@ -41,9 +41,9 @@ const show = (req, res) => {
 
 // Destroy
 const destroy = (req, res) => {
-    
 
-}
+
+};
 
 module.exports = {
     index,
@@ -52,4 +52,4 @@ module.exports = {
     // update,
     // modify,
     destroy
-}
+};

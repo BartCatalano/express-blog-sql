@@ -1,7 +1,7 @@
 const bachecaList = require("../data/data.js");
-next();
-// const checkFoodExist = (req, res, next) => {
 
+ const checkFoodExist = (req, res, next) => {
+   next();
 //     // prendo id da req e lo trsformo in un numero
 //     const foodId = parseInt(req.params.id);
 
@@ -17,6 +17,6 @@ next();
 //         message: "cibo non presente nel menu"
 //     });
 //    }
-// }
+ };
 
-  export default checkFoodExist;
+ module.exports = checkFoodExist;
