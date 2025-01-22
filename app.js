@@ -24,7 +24,7 @@ app.get("/", (req, res)=>{
 });
 
 // Dopo tutte le rotte inseriamo il moddleware che gestisce errore
-app.use(handleError);
+// app.use(handleError);
 
 // creo route di listening
 app.listen(port, ()=>{

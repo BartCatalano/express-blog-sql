@@ -5,16 +5,19 @@ const connection = require("../data/data");
 
 // index
 const index = (req, res) => {
+
     const sql = "SELECT * FROM `posts`";
 
-    connection.query(sql, (err, res) => {
-        if (err) return res.status(500).json({
-            massage: "Errore Interno Del Server"
-        })
-        return req.status(200).json({
-            status: "success",
-            data: post,
-        })
+    connection.query(sql, (error, results) => {
+        if (error) {
+            return res.status(500).json({
+                message: "Errore Interno Del Server1111"
+            });
+        } else {
+            return res.status(200).json({
+                posts: results
+            });
+        }
     });
 }
 

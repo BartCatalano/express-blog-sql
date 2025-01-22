@@ -12,4 +12,4 @@ connection.connect((err)=>{
     console.log("connected to MySql");
 });
 
-module.exports = mysql;
+module.exports = connection;
