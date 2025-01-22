@@ -13,4 +13,4 @@ connection.connect((error)=>{
     
 });
 
-export default mysql;
+module.exports = mysql;

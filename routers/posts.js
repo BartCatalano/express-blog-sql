@@ -8,14 +8,15 @@ router.get(`/`, controllerBacheca.index);
 
 // show
 router.get("/:id", checkFoodExis, controllerBacheca.show);
-// create
-router.post("/", controllerBacheca.create);
-// update
-router.put("/:id",checkFoodExis, controllerBacheca.update);
+// // create
+// router.post("/", controllerBacheca.create);
+// // update
+// router.put("/:id",checkFoodExis, controllerBacheca.update);
 
-// modify 
-router.patch("/:id",checkFoodExis, controllerBacheca.modify);
-// delete
+// // modify 
+// router.patch("/:id",checkFoodExis, controllerBacheca.modify);
+
+// destry
 router.delete("/:id",checkFoodExis, controllerBacheca.destroy);
 
 module.exports = router;
