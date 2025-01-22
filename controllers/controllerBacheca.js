@@ -11,7 +11,7 @@ const index = (req, res) => {
     connection.query(sql, (error, results) => {
         if (error) {
             return res.status(500).json({
-                message: "Errore Interno Del Server1111"
+                message: "Errore Interno Del Server"
             });
         } else {
             return res.status(200).json({
@@ -24,7 +24,28 @@ const index = (req, res) => {
 
 // show
 const show = (req, res) => {
+    // prendo id
+    const id = req.params.id;
+    // preparo sql con sicurezza "?"
+    const sql = "SELECT * FROM `posts` WHERE id = ?";
 
+    connection.query(sql, [id], (error, results) => {
+        if (error) {
+            return res.status(500).json({
+                message: "Errore Interno Del Server"
+            });
+        } else if (results.length === 0) {
+            return res.status(404).json({
+                message: "Nessun risultato dalla ricerca"
+            })
+        } else {
+            return res.status(200).json({
+                status: "success",
+                posts: results[0],
+            })
+        }
+
+    })
 };
 
 // create
@@ -44,6 +65,17 @@ const show = (req, res) => {
 
 // Destroy
 const destroy = (req, res) => {
+    const id = req.params.id;
+    const sql = "DELETE FROM `posts` WHERE id = ?";
+    connection.query(sql, [id],(error) => {
+    if (error) {
+        return res.status(500).json({
+            message: "errore interno del server",
+        });
+    } else {
+        return res.sendStatus(204);
+    }
+});
 
 
 };
